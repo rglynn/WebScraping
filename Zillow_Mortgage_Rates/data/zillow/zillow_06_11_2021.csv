@@ -1,0 +1,17 @@
+Date,Loan_Type,Program,Rate,Rate_Change,APR,APR_Change
+06/11/2021,Conforming loans,30-Year Fixed Rate,2.68,2.68,2.68,2.74
+06/11/2021,Conforming loans,20-Year Fixed Rate,2.54,2.54,2.54,2.62
+06/11/2021,Conforming loans,15-Year Fixed Rate,2.04,2.04,2.04,2.12
+06/11/2021,Conforming loans,10-Year Fixed Rate,2.01,2.01,2.01,2.08
+06/11/2021,Conforming loans,7/1 ARM,2.18,2.18,2.18,2.92
+06/11/2021,Conforming loans,5/1 ARM,2.15,2.15,2.15,3.05
+06/11/2021,Conforming loans,3/1 ARM,2.14,2.14,2.14,2.75
+06/11/2021,Government loans,30-Year Fixed Rate FHA,2.29,2.29,2.29,2.97
+06/11/2021,Government loans,30-Year Fixed Rate VA,2.44,2.44,2.44,2.64
+06/11/2021,Government loans,15-Year Fixed Rate FHA,2.08,2.08,2.08,2.81
+06/11/2021,Government loans,15-Year Fixed Rate VA,2.29,2.29,2.29,2.63
+06/11/2021,Jumbo loans,30-Year Fixed Rate Jumbo,3.00,3.00,3.00,3.05
+06/11/2021,Jumbo loans,15-Year Fixed Rate Jumbo,2.69,2.69,2.69,2.77
+06/11/2021,Jumbo loans,7/1 ARM Jumbo,2.76,2.76,2.76,3.12
+06/11/2021,Jumbo loans,5/1 ARM Jumbo,2.59,2.59,2.59,3.12
+06/11/2021,Jumbo loans,3/1 ARM Jumbo,2.14,2.14,2.14,2.74
