@@ -1,5 +1,7 @@
 # WebScraping
-All my web scraping side-projects
+All my web scraping side-projects.
+
+Feel free to visit https://www.ryanglynn.com for additional stuff and check out my other repos here.
 
 
 
