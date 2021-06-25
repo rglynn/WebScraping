@@ -6,6 +6,7 @@ import re
 import csv
 import requests
 import time
+import datetime
 
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
@@ -78,19 +79,32 @@ for i, row in df.iterrows():
             permit_status = permit.find_elements_by_xpath(".//td")[2].text
             if permit_type == 'Building':
                 permit_date = permit.find_elements_by_xpath(".//td")[4].text
-                print(permit_date+ ' ' + permit_status )
-                if permit_date == row['Permit Date']:
+                cur_y = int(re.search('\d+\/\d+\/(\d+)', permit_date).group(1))
+                cur_d = int(re.search('\d+\/(\d+)\/\d+', permit_date).group(1))
+                cur_m = int(re.search('(\d+)\/\d+\/\d+', permit_date).group(1))
+                cur_date = datetime.datetime(cur_y, cur_m, cur_d)
+                prev_y = int(re.search('\d+\/\d+\/(\d+)', row['Permit Date']).group(1))
+                prev_d = int(re.search('\d+\/(\d+)\/\d+', row['Permit Date']).group(1))
+                prev_m = int(re.search('(\d+)\/\d+\/\d+', row['Permit Date']).group(1))
+                prev_date = datetime.datetime(prev_y, prev_m, prev_d)
+                #print(permit_date+ ' ' + permit_status )
+                if prev_date >= cur_date:
                     #print('Permit up to date.')
-                    pass
+                    if permit_status == row['Permit Status']:
+                    #print('Permit status up to date')
+                        pass
+                    else:
+                        df.at[i, 'Permit Status'] = str(permit_status)
+                        print('Updating permit status to ' + permit_status)
                 else:
                     df.at[i, 'Permit Date'] = str(permit_date)
                     print('Updating permit date to ' + permit_date)
-                if permit_status == row['Permit Status']:
+                    if permit_status == row['Permit Status']:
                     #print('Permit status up to date')
-                    pass
-                else:
-                    df.at[i, 'Permit Status'] = str(permit_status)
-                    print('Updating permit status to ' + permit_status)
+                        pass
+                    else:
+                        df.at[i, 'Permit Status'] = str(permit_status)
+                        print('Updating permit status to ' + permit_status)
     return_to_search = driver.find_element_by_xpath('//a[@href="#searchtab"]').click()
     time.sleep(0.5)
 
