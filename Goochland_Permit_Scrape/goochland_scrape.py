@@ -83,11 +83,13 @@ for i, row in df.iterrows():
                 cur_d = int(re.search('\d+\/(\d+)\/\d+', permit_date).group(1))
                 cur_m = int(re.search('(\d+)\/\d+\/\d+', permit_date).group(1))
                 cur_date = datetime.datetime(cur_y, cur_m, cur_d)
-                prev_y = int(re.search('\d+\/\d+\/(\d+)', row['Permit Date']).group(1))
-                prev_d = int(re.search('\d+\/(\d+)\/\d+', row['Permit Date']).group(1))
-                prev_m = int(re.search('(\d+)\/\d+\/\d+', row['Permit Date']).group(1))
-                prev_date = datetime.datetime(prev_y, prev_m, prev_d)
-                #print(permit_date+ ' ' + permit_status )
+                if  row['Permit Date'] != "Unk":
+                    prev_y = int(re.search('\d+\/\d+\/(\d+)', row['Permit Date']).group(1))
+                    prev_d = int(re.search('\d+\/(\d+)\/\d+', row['Permit Date']).group(1))
+                    prev_m = int(re.search('(\d+)\/\d+\/\d+', row['Permit Date']).group(1))
+                    prev_date = datetime.datetime(prev_y, prev_m, prev_d)
+                else:
+                    prev_date = datetime.datetime(2000, 1, 1)
                 if prev_date >= cur_date:
                     #print('Permit up to date.')
                     if permit_status == row['Permit Status']:
