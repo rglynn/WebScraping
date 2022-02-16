@@ -57,6 +57,8 @@ for i, row in df.iterrows():
     if owner_name.text == row['Owner']:
         #print('No change in Owner')
         pass
+    elif len(owner_name.text) < 4:
+        pass
     else:
         print('New Owner: ' + owner_name.text)
         #print('Replacing ' + row['Owner'])
